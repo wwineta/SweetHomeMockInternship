@@ -591,11 +591,10 @@ public class HomeFurnitureController implements Controller {
    * Returns <code>true</code> if the given <code>property</code> is editable.
    * Depending on whether a property is editable or not, the view associated to this controller
    * may render it differently.
-   * The implementation of this method always returns <code>true</code> except for <code>DESCRIPTION</code> and <code>PRICE</code> properties. 
+   * The implementation of this method always returns <code>true</code> except for <code>PRICE</code> property.
    */
   public boolean isPropertyEditable(Property property) {
     switch (property) {
-      case DESCRIPTION :
       case PRICE :
         return false;
       case LIGHT_POWER :
@@ -1209,8 +1208,8 @@ public class HomeFurnitureController implements Controller {
       if (this.undoSupport != null) {
         List<Selectable> newSelection = this.home.getSelectedItems(); 
         UndoableEdit undoableEdit = new FurnitureModificationUndoableEdit(
-            this.home, this.preferences, oldSelection, newSelection, modifiedFurniture, 
-            name, nameVisible, description, price, x, y, elevation, angle, basePlanItem, width, depth, height, 
+            this.home, this.preferences, oldSelection, newSelection, modifiedFurniture,
+            name, nameVisible, description, price, x, y, elevation, angle, basePlanItem, width, depth, height,
             paint, color, texture, modelMaterials, defaultShininess, shininess, visible, modelMirrored, lightPower);
         this.undoSupport.postEdit(undoableEdit);
       }
@@ -1256,12 +1255,12 @@ public class HomeFurnitureController implements Controller {
     private final Float                       lightPower;
 
     private FurnitureModificationUndoableEdit(Home home,
-                                              UserPreferences preferences, 
+                                              UserPreferences preferences,
                                               List<Selectable> oldSelection,
                                               List<Selectable> newSelection,
                                               ModifiedPieceOfFurniture [] modifiedFurniture,
-                                              String name, Boolean nameVisible, String description, BigDecimal price, 
-                                              Float x, Float y, Float elevation, Float angle, Boolean basePlanItem, 
+                                              String name, Boolean nameVisible, String description, BigDecimal price,
+                                              Float x, Float y, Float elevation, Float angle, Boolean basePlanItem,
                                               Float width, Float depth, Float height,
                                               FurniturePaint paint, Integer color, HomeTexture texture,
                                               HomeMaterial [] modelMaterials,
